@@ -1,0 +1,222 @@
+html,
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+      font-size: 40px;
+      background: #2B3035ff;
+    }
+
+    * {
+      box-sizing: inherit;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #hide-checkbox {
+      opacity: 0;
+      height: 0;
+      width: 0;
+    }
+
+    .toggle {
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      width: 200px;
+      height: 100px;
+      background: radial-gradient(ellipse at bottom, #0D1E31, #111);
+      border-radius: 50px;
+      transition: 500ms;
+      overflow: hidden;
+    }
+
+    .toggle-button {
+      position: absolute;
+      display: inline-block;
+      top: 7px;
+      left: 6px;
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: #FAEAF1;
+      overflow: hidden;
+      box-shadow: 0 0 35px 4px rgba(255, 255, 255);
+      transition: all 500ms ease-out;
+      z-index: 1;
+    }
+
+    .crater {
+      position: absolute;
+      display: inline-block;
+      background: #FAEAF1;
+      border-radius: 50%;
+      transition: 500ms;
+    }
+
+    .crater-1 {
+      background: #FFFFF9;
+      width: 86px;
+      height: 86px;
+      left: 10px;
+      bottom: 10px;
+    }
+
+    .crater-2 {
+      width: 20px;
+      height: 20px;
+      top: -7px;
+      left: 44px;
+    }
+
+    .crater-3 {
+      width: 16px;
+      height: 16px;
+      top: 20px;
+      right: -4px;
+    }
+
+    .crater-4 {
+      width: 10px;
+      height: 10px;
+      top: 24px;
+      left: 30px;
+    }
+
+    .crater-5 {
+      width: 15px;
+      height: 15px;
+      top: 40px;
+      left: 48px;
+    }
+
+    .crater-6 {
+      width: 10px;
+      height: 10px;
+      top: 48px;
+      left: 20px;
+    }
+
+    .crater-7 {
+      width: 12px;
+      height: 12px;
+      bottom: 5px;
+      left: 35px;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.0);
+      border-radius: 5px;
+    }
+
+    @keyframes twinkle {
+      0% {
+        transform: scale(1, 1);
+        background: rgba(255, 255, 255, 0.0);
+        animation-timing-function: ease-in;
+      }
+      60% {
+        transform: scale(0.8, 0.8);
+        background: rgba(255, 255, 255, 1);
+        animation-timing-function: ease-out;
+      }
+      80% {
+        background: rgba(255, 255, 255, 0.00);
+        transform: scale(1, 1);
+      }
+      100% {
+        background: rgba(255, 255, 255, 0.0);
+        transform: scale(1, 1);
+      }
+    }
+
+#hide-checkbox:checked+.toggle {
+  background: #00b4ff;
+}
+
+#hide-checkbox:checked+.toggle .toggle-button {
+  background: #FFCC33;
+  transform: translateX(102px);
+  box-shadow: 0 0 35px 5px gold;
+}
+
+#hide-checkbox:checked + .toggle .crater-1 {
+  background: #FFCC33;
+}
+
+#hide-checkbox:not(:checked) + .toggle .crater-1 {
+  background-color: #FFF;
+}
+
+#hide-checkbox:checked+.toggle .toggle-button .crater {
+  transform: rotate(-45deg) translateX(70px);
+}
+
+p {
+  text-align: center;
+  letter-spacing: 15px;
+  background: #34495e;
+  color: #FFF;
+}
+
+p.morning {
+  background: #e67e22;
+}
+
+a {
+  color: #b8956b;
+  display: inline-block;
+  position: relative;
+  text-align: right;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 0;
+  color: #b8956b;
+  text-shadow: 0 -1px 0 rgba(199, 145, 107, 0.6), 0 2px 3px #000;
+}
+
+a span {
+  display: block;
+}
+
+.clouds {
+  opacity: 0.4;
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transition: opacity 1s ease;
+}
+
+.clouds-1,
+.clouds-2,
+.clouds-3 {
+  background-repeat: repeat-x;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 500px;
+}
+
+.clouds.disappear {
+  opacity: 0;
+}
